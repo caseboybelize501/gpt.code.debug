@@ -1,0 +1,25 @@
+{
+  "name": "gpt.code.debug",
+  "version": "1.0.0",
+  "description": "Autonomous Self-Improving Coding Agent",
+  "main": "src/main.py",
+  "scripts": {
+    "start": "python src/main.py",
+    "dev": "python -m debugpy --listen 5678 src/main.py",
+    "test": "pytest tests/"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "python-dotenv": "^1.0.0",
+    "chromadb": "^0.4.0",
+    "neo4j": "^5.0.0",
+    "stripe": "^13.0.0",
+    "dockerode": "^3.3.0",
+    "kubernetes-client": "^8.0.0"
+  },
+  "devDependencies": {
+    "pytest": "^7.4.0",
+    "black": "^23.0.0",
+    "flake8": "^6.0.0"
+  }
+}

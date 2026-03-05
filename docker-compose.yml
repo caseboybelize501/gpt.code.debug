@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: gpt-code-debug
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - PYTHONPATH=/app
+      - STRIPE_API_KEY=${STRIPE_API_KEY}
+    depends_on:
+      - chromadb
+      - neo4j
+
+  chromadb:
+    image: chromadb/chroma:latest
+    container_name: chromadb
+    ports:
+      - "8001:8000"
+    volumes:
+      - chromadb_data:/chroma/data
+
+  neo4j:
+    image: neo4j:5.0
+    container_name: neo4j
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      - NEO4J_AUTH=neo4j/password
+    volumes:
+      - neo4j_data:/data
+
+volumes:
+  chromadb_data:
+  neo4j_data:
