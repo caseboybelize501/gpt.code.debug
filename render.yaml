@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: gpt-code-debug
+    env: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
